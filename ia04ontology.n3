@@ -1,0 +1,15 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix td5: <http://utc.fr/ia04/td5/> .
+@prefix ia04: <http://utc.fr/ia04/custom-ontology/> .
+@prefix geo: <http://linkedgeodata.org/triplify/> .
+@prefix vs:  <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+
+ia04:hobby
+    a owl:Class, rdfs:Class ;
+    rdfs:comment "A hobby." ;
+    rdfs:isDefinedBy ia04: ;
+    rdfs:label "Hobby" ;
+    owl:oneOf (td5:couture td5:maquette) ;
+    vs:term_status "stable" .

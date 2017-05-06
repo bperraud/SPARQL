@@ -1,0 +1,42 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX lgd:  <http://linkedgeodata.org/>
+PREFIX lgdo: <http://linkedgeodata.org/ontology/>
+
+# SELECT ?x
+# WHERE {
+#     ?x a owl:Class
+# }
+
+# SELECT ?x
+# WHERE {
+#     ?x a rdf:Property
+# }
+
+# SELECT ?c ?x
+# WHERE {
+#     ?c rdfs:domain ?x
+# }
+
+
+# SELECT *
+# WHERE {
+#   ?country a lgdo:Country ;
+#      lgdo:capital_city ?city ;
+#      lgdo:wikipedia ?name .
+# }
+
+# SELECT *
+# WHERE {
+#    ?p foaf:knows ?o
+# }
+
+SELECT DISTINCT *
+WHERE {
+    td5:xavier foaf:topic_interest ?pays .
+    ?p foaf:topic_interest ?pays .
+    FILTER (REGEX(STR(?pays), "^http://linkedgeodata\\.org/triplify/"))
+    FILTER (!REGEX (STR(?p), "http://utc\\.fr/ia04/td5/xavier"))
+}

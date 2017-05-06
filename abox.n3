@@ -1,0 +1,40 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix td5: <http://utc.fr/ia04/td5/> .
+@prefix ia04: <http://utc.fr/ia04/custom-ontology/> .
+@prefix geo: <http://linkedgeodata.org/triplify/> .
+
+td5:xavier
+    a foaf:Person ;
+    foaf:name "Xavier" ;
+    foaf:knows td5:natasha ;
+    foaf:knows td5:bertrand ;
+    foaf:topic_interest geo:node148332300 ;
+    foaf:topic_interest geo:node424311848 ;
+    foaf:topic_interest ia04:maquette .
+
+td5:natasha
+    a foaf:Person ;
+    foaf:name "Natasha" ;
+    foaf:knows td5:xavier ;
+    foaf:topic_interest ia04:couture ;
+    foaf:topic_interest geo:node424311848 ;
+    foaf:topic_interest geo:node148332300 .
+
+td5:bertrand
+    a foaf:Person ;
+    foaf:topic_interest geo:node424311848 ;
+    foaf:name "Bertrand" .
+
+td5:aurore
+    a foaf:Person ;
+    foaf:name "Aurore" ;
+    foaf:knows td5:xavier ;
+    foaf:knows td5:persephone ;
+    foaf:topic_interest ia04:couture .
+
+td5:persephone
+    a foaf:Person ;
+    foaf:name "Perséphone" ;
+    foaf:knows td5:aurore .

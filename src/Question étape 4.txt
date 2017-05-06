@@ -1,0 +1,16 @@
+- Agent dédié "PropagateCapitalOfCountriesOfInterestOfPersonByNameSparqlRequestAgent"
+- Behaviour cyclique "HandleRequestsBehaviour"
+- Ce behaviour reçoit la requête de la part de l'utilisateur (console Jade)
+    - formatée par exemple : "Xavier" (elle se constitue uniquement du nom de la personne
+    dont on veut obtenir les capitales des pays auxquels celle-ci s'intéresse)
+- Il formate une requête SPARQL SELECT pour obtenir la liste des pays de la personne
+dont le nom est celui passé dans la requête précédente à l'agent PropagateSparql
+    - on itère sur le resultSet (sur chaque QuerySolution) : pour chaque ressource, on récupère
+    le localName lorsque le nameSpace correspond à celui de geo (linkedgeo...) et on l'ajoute
+    au contenu de la réponse à envoyer à l'agent "PropagateCapital...".
+- L'agent "PropagateCapital..." reçoit la liste des pays que la personne aime.
+Il formate une requête SPARQL SELECT avec une disjonction de clauses pour chaque pays
+de manière à obtenir leurs capitales puis la transmet à l'agent PropagateGeoSparql.
+- L'agent PropagateGeoSparql se charge de transmettre la requête sur la base de connaissances
+distante en faisant appel à l'agent Geodata puis renvoie la réponse à l'agent "PropagateCapital...".
+- Enfin, l'agent "PropagateCapital" affiche la réponse tant attendue par l'intrépide utilisateur ! :)
